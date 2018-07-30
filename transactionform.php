@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+include 'sqlconnect.php';
+?>
 <html lang="en">
 
 <head>
@@ -58,13 +60,13 @@
             </a>
                     <ul class="sidenav-third-level collapse" id="collapseMulti2">
                         <li>
-                            <a href="transactionform.html">Transaction form</a>
+                            <a href="transactionform.php">Transaction form</a>
                         </li>
                         <li>
-                            <a href="transactionlist.html">Transaction list</a>
+                            <a href="transactionlist.php">Transaction list</a>
                         </li>
                         <li>
-                            <a href="transactionreport.html">Transaction report</a>
+                            <a href="transactionreport.php">Transaction report</a>
                         </li>
                     </ul>
                 </li>
@@ -90,19 +92,10 @@
           </a>
                 </li>
             </ul>
+
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Search for...">
-                            <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-                        </div>
-                    </form>
-                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -117,105 +110,84 @@
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Transaction list</li>
+                <li class="breadcrumb-item active">Transaction form</li>
             </ol>
-            <!-- Example DataTables Card-->
+
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> Transaction list</div>
+                    <i class="fa fa-bar-chart"></i> Form/ fill item</div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Item code</th>
-                                    <th>Item name</th>
-                                    <th>Quantity</th>
-                                    <th>Unit price</th>
-                                    <th>Total price</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Item code</th>
-                                    <th>Item name</th>
-                                    <th>Quantity</th>
-                                    <th>Unit price</th>
-                                    <th>Total price</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td><button class="btn btn-primary" name="edit" type="button">
-              <i class="fa fa-edit"></i>Edit</button></td>
-                                </tr>
 
-                            </tbody>
-                            <tbody>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <label for="inputPassword4">Quantity</label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Quantity" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <label for="inputEmail4">Unit Prize</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Unit Prize" required>
+                            </div>
+                            <div class="form-group col-md-6 offset-md-3">
+                                <label for="inputPassword4">Quantitative</label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Quantitative" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <label for="inputPassword4">Description</label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Description" required>
+                            </div>
+                        </div>
+                        <div class=" col-md-6 offset-md-3">
+                            <button class="btn btn-success " type="submit">Add Item</button>
+                            <button class="btn btn-danger" type="reset">Reset</button>
+                        </div>
+                    </form>
 
-                            </tbody>
-                        </table>
+                </div>
+
+            </div>
+
+            <footer class="sticky-footer">
+                <div class="container">
+                    <div class="text-center">
+                        <small>Group 9 Copyright © All right Reserved On-Target Inventory System 2018</small>
                     </div>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-        </div>
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
-        <footer class="sticky-footer">
-            <div class="container">
-                <div class="text-center">
-                    <small>Group 9 Copyright © All right Reserved On-Target Inventory System 2018</small>
-                </div>
-            </div>
-        </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
+            </footer>
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-        <!-- Logout Modal-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <!-- Logout Modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="login.html">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin.min.js"></script>
         </div>
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Page level plugin JavaScript-->
-        <script src="vendor/datatables/jquery.dataTables.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin.min.js"></script>
-        <!-- Custom scripts for this page-->
-        <script src="js/sb-admin-datatables.min.js"></script>
-    </div>
 </body>
 
 </html>
-
-<?php
-
-
->
