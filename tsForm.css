@@ -1,0 +1,42 @@
+.btn-row{
+  width:100%;
+  margin-top: 30px;
+}
+
+.btn-add-style, .btn-reset{
+  width: 200px;
+}
+
+.btn-add-style{
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.btn-confirm-style{
+  margin-left: 5px;
+}
+
+.form-margin{
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:invalid + span:after {
+    font-family: sans-serif;
+    content: '✖';
+    color: #f00;
+    padding-left: 5px;
+}
+
+input:valid + span:after {
+    font-family: sans-serif;
+    content: '✓';
+    color: #26b72b;
+    padding-left: 5px;
+}

@@ -7,11 +7,13 @@ $dbname='test';
 $dsn='mysql:host='. $host .';dbname='. $dbname;
 
 try{
-$pdo=new PDO($dsn, $user, $password);
-$messages= 'connection established';
+  $pdo=new PDO($dsn, $user, $password);
+  $messages= 'connection established';
 }
 catch(PDOException $error){
   $messages=$error;
 }
+
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
 ?>
