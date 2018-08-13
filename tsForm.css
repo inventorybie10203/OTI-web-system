@@ -3,11 +3,11 @@
   margin-top: 30px;
 }
 
-.btn-add-style, .btn-reset{
+.btn-left-style, .btn-reset{
   width: 200px;
 }
 
-.btn-add-style{
+.btn-left-style{
   margin-right: 20px;
   margin-left: 10px;
 }

@@ -1,4 +1,3 @@
-
 <?php
 include 'sqlconnect.php';
 
@@ -11,7 +10,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $sql='SELECT * FROM inventory WHERE ID_item='.$_POST['id'];
     $stmt=$pdo->prepare($sql);
     $stmt->execute();
-    $itemDetails=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    $itemDetails=$stmt->fetchAll();
     $return=json_encode($itemDetails);
     echo $return;
   }
@@ -19,20 +18,26 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $sql='SELECT name_item, ID_item FROM inventory';
     $stmt=$pdo->prepare($sql);
     $stmt->execute();
-    $itemList=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    $itemList=$stmt->fetchAll();
     $return=json_encode($itemList);
     echo $return;
   }
+  else if($_POST['page']=='tranac-list'){
+    $sql='SELECT * FROM transactions';
+    $stmt=$pdo->prepare($sql);
+    $stmt->execute();
+    $transactionList=$stmt->fetchAll();
+    $return=json_encode($transactionList);
+    echo $return;
+
+  }
   else{
-    echo "unable rcoginse function data passed";
+    echo "unable rcoginse function data passed\n";
     $info=var_dump($_POST);
   }
 }
 else {
   echo "not a post method";
 }
-
-
-
 
 ?>

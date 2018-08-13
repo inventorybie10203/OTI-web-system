@@ -61,17 +61,17 @@
           </a>
           <ul class="sidenav-third-level collapse" id="collapseMulti2">
             <li>
-              <a href="transactionform.php">Transaction form</a>
+              <a href="transactionForm.html">Transaction form</a>
             </li>
             <li>
-              <a href="transactionlist.php">Transaction list</a>
+              <a href="transactionList.html">Transaction list</a>
             </li>
             <li>
-              <a href="transactionreport.php">Transaction report</a>
+              <a href="transactionReport.html">Transaction report</a>
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">=
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Admin management</span>
@@ -149,7 +149,7 @@
                 <div class="form-row">
                   <div class="form-group col-lg-6 col-md-6">
                     <label for="qtyInput"></label>
-                    <input class="col-md-10 col-lg-10" type="number" name="qtyInput" min="1" autocomplete="off"></input><span class="validity"></span>
+                    <input class="col-md-10 col-lg-10" type="number" name="qtyInput" min="1" disabled min=0 autocomplete="off"></input><span class="validity"></span>
                   </div>
                   <div class="form-group col-lg-6 col-md-6">
                     <label for="qtyAvaliable"></label>
@@ -176,7 +176,7 @@
                 </div>
                 <div class="form-row ">
                   <div class="form-group btn-row">
-                    <button class="btn btn-success btn-add-style" type="button">Add item</button>
+                    <button class="btn btn-success btn-left-style" type="button" id="addItem">Add item</button>
                     <button class="btn btn-danger btn-reset" type="reset">Reset</button>
                   </div>
                 </div>
@@ -198,7 +198,6 @@
                         <th>Quantity</th>
                         <th>Unit price</th>
                         <th>Total Price</th>
-                        <th>Remove item</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -207,31 +206,17 @@
                         <th>Quantity</th>
                         <th>Unit price</th>
                         <th>Total Price</th>
-                        <th>Remove item</th>
                       </tr>
                     </tfoot>
-                    <tbody>
-                      <!--inject script to add form card above-->
-                      <tr>
-                        <td>demo</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>siang</td>
-                        <td>11</td>
-                        <td>22</td>
-                        <td>33</td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                    </tbody>
                   </table>
                 </div>
                 <form class="form-margin">
+                  <div class="form-row ">
+                    <div class="form-group">
+                      <button class="btn btn-danger btn-reset btn-left-style" type="button" id="clearRows">Clear selected items</button>
+                      <button class="btn btn-danger btn-reset" type="button" id="clearTable">Clear items</button>
+                    </div>
+                  </div>
                   <div class="form-row">
                     <div class="col-lg-6 col-md-6 form-group">
                       Enter GST/SST (%)
@@ -303,7 +288,7 @@
                   </div>
                   <div class="form-row ">
                     <div class="form-group btn-row">
-                      <button class="btn btn-success btn-add-style btn-confirm-style" type="submit">Confirm transaction</button>
+                      <button class="btn btn-success btn-left-style btn-confirm-style" type="button">Confirm transaction</button>
                       <button class="btn btn-danger btn-reset" type="reset">Reset</button>
                     </div>
                   </div>
@@ -355,7 +340,6 @@
             <!-- Custom scripts for all pages-->
             <script src="js/sb-admin.min.js"></script>
             <!-- Custom scripts for this page-->
-            <script src="js/sb-admin-datatables.min.js"></script>
             <script src="tsForm.js"></script>
           </div>
         </body>
