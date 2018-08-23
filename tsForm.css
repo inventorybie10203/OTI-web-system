@@ -21,6 +21,15 @@
   margin-left: 15px;
 }
 
+.error{
+  color: red;
+}
+
+
+input[readonly], textarea[readonly] {
+    color: gray;
+}
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
