@@ -258,7 +258,7 @@ $(document).ready(function(){
         }
       },
       submitHandler: function(transactionFormVerified){
-        alert("Form Submited");
+        alert("Data submited");
         dataPost.page="form-item-add";
         dataPost.totalItem=itemTable.rows().count();
         $(transactionFormVerified).ajaxSubmit({
@@ -287,13 +287,7 @@ $(document).ready(function(){
         });
       }
     });
-
-
-
     $(document).on("wheel", "input[type=number]", function (e) {
       $(this).blur();
     });
-
-
-
   });

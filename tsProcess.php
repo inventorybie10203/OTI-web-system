@@ -4,7 +4,7 @@ include 'sqlconnect.php';
 // from php process
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
   if($_POST==null){
-    echo "nodata received?";
+    echo "error\nnodata received";
   }
   else if($_POST['page']=='form-item-details') {
     $sql='SELECT * FROM inventory WHERE ID_item='.$_POST['id'];
@@ -15,7 +15,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $return=json_encode($itemDetails);
     }
     catch(PDOException $erorr){
-      $return=$error;
+      $return="error message\n".$error;
     }
     echo $return;
   }
@@ -28,7 +28,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $return=json_encode($itemList);
     }
     catch(PDOException $error){
-      $return=$error;
+      $return="error message\n".$error;
     }
     echo $return;
   }
@@ -41,7 +41,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $return=json_encode($transactionList);
     }
     catch(PDOException $error){
-      $return=$error;
+      $return="error message\n".$error;
     }
     echo $return;
   }
@@ -67,17 +67,38 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $return="Data added";
     }
     catch(PDOException $error){
-      $return=$error;
+      $return="error message\n".$error;
+    }
+    echo $return;
+  }
+  else if ($_POST['page']=='transRept') {
+    $startDate=$_POST['startDate'];
+    $endDate=$_POST['endDate'];
+    $SDExtrated=strtotime($startDate);
+    $newStartDate=date('Y-m-d',$SDExtrated);
+    $EDExtrated=strtotime($endDate);
+    $newEndDate=date('Y-m-d',$EDExtrated);
+    $sql='SELECT * FROM transactions WHERE dateAdded BETWEEN :startD AND :endD';
+    $stmt=$pdo->prepare($sql);
+    try{
+      $stmt->bindParam(':startD',$newStartDate);
+      $stmt->bindParam(':endD',$newEndDate);
+      $stmt->execute();
+      $transactionList=$stmt->fetchAll();
+      $return=json_encode($transactionList);
+    }
+    catch(PDOException $error){
+      $return="error message\n".$error;
     }
     echo $return;
   }
   else{
-    echo "unable rcoginse function data passed\n";
+    echo "error\nunable rcoginse function data passed\n";
     $info=var_dump($_POST);
   }
 }
 else {
-  echo "not a post method";
+  echo "error\nnot a post method";
 }
 
 ?>
